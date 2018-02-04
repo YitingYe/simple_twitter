@@ -1,9 +1,27 @@
-<h1>餐廳後台</h1>
-<ul>
-  <% @tweets.each do |tweet| %>
-    <li>
-      <%= tweet.description %>
-      <%= link_to 'Delete', admin_tweet_path(tweet), method: :delete, data: {confirm: "Area you sure?"} %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>後台</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Tweets</th>
+            <th>delete?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tweets.each do |tweet| %>
+            <tr>
+              <th scope="row"><%= tweet.id %></th>
+              <td><%= tweet.description %></td>
+              <td>
+              <%= link_to 'Delete', admin_tweet_path(tweet), method: :delete, data: {confirm: "Area you sure?"} %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
