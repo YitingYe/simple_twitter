@@ -3,6 +3,7 @@ class Admin::TweetsController < ApplicationController
   before_action :authenticate_admin
 
   def index
+    @tweets = Tweet.all
   end
   
 end
