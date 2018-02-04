@@ -1,4 +1,9 @@
 <h1>餐廳前台</h1>
+<%= form_for @tweet do |f| %>
+  <%= f.text_area :description %>
+  <%= f.submit 'Tweet'%>
+<% end %>
+
 <% @tweets.each do |tweet| %>
   <p><%= tweet.description %> | <%= tweet.user.name %></p>
 <% end %>
