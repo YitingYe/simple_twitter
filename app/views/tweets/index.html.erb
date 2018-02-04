@@ -1,1 +1,4 @@
 <h1>餐廳前台</h1>
+<% @tweets.each do |tweet| %>
+  <p><%= tweet.description %> | <%= tweet.user.name %></p>
+<% end %>
