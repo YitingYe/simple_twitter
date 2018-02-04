@@ -10,9 +10,6 @@
 
   <body>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <!-- 導覽列 -->
     <nav class = "navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -37,6 +34,26 @@
         </div>
       </div>
     </nav>
+
+    <!-- alert message -->
+
+    <% if flash[:notice] %>
+    <div class="container">
+      <div class="row">
+        <div class="alert alert-info"><%= notice %></div>
+      </div>
+    </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+    <div class="container">
+      <div class="row">
+        <div class="alert alert-waring"><%= alert %></div>
+      </div>
+    </div>
+    <% end %>
+
+    <!-- 暫時保留
     
     <% if current_user %>
     Hi, <%= current_user.name %>
@@ -46,6 +63,8 @@
       <%= link_to('註冊', new_user_registration_path) %>
       <%= link_to('登入', new_user_session_path) %>
     <% end %>
+
+    -->
 
     <%= yield %>
 
