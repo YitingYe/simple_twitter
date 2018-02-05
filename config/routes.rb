@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   resources :user do
     resources :tweets
   end
-  resources :tweets, only: [:index, :show, :new, :create]
+  resources :tweets, only: [:index, :show, :new, :create] do
+    resources :replies, only: [:index, :create, :destroy]
+  end
+
   root "tweets#index"
 
-  resources :replies, only: [:index, :create, :destroy]
+
 
   namespace :admin do
     resources :tweets, only: [:index, :destroy]

@@ -28,6 +28,7 @@
             <div class="tweet-index">
               <%= tweet.description %>
             </div>
+            <%= link_to "Reply", tweet_replies_path(tweet) %>
           </div>
         </div>
       <% end %>
