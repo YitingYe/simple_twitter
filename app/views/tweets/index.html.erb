@@ -1,9 +1,19 @@
-<h1>餐廳前台</h1>
-<%= form_for @tweet do |f| %>
-  <%= f.text_area :description %>
-  <%= f.submit 'Tweet'%>
-<% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
 
-<% @tweets.each do |tweet| %>
-  <p><%= tweet.description %> | <%= @tweet.user %></p>
-<% end %>
+          <%= form_for @tweet do |f| %>
+            <%= f.text_area :description, {maxlength: 140, class: "form-control", rows: "5"} %>
+            <br />
+            <%= f.submit 'Tweet', class: "btn btn-primary" %>
+          <% end %>
+          
+          <br />
+
+          <% @tweets.each do |tweet| %>
+            <p><%= tweet.description %> | <%= tweet.user %></p>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
