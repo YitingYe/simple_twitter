@@ -1,10 +1,15 @@
-<!-- tweet -->
+
 <div class="container">
   <div class="row">  
 
-    <div class="title">Tweets</div>
+    <!-- tweet's author -->
+    <div class="col-md-2">
+      <div class="title"><%= @tweet.user.name %></div>
+    </div>
 
-    <div class="col-md-8">
+  <!-- tweet -->
+    <div class="col-md-10">
+      <div class="title">Tweets</div>
       <div class="tweet-item">
         <div class="user-date">
           <%= @tweet.user.name %>,
@@ -14,47 +19,33 @@
           <%= @tweet.description %>
         </div>
       </div>
-    </div>
+    
 
-  </div>
-</div>
+    <!-- 顯示評論 -->
 
-<!-- 顯示評論 -->
+      <div class="title">Replies</div>
 
-<div class="container">
-  <div class="row"> 
+      <% @tweet.replies.each do |reply| %>
 
-  <div class="title">Replies</div>
-
-  <% @tweet.replies.each do |reply| %>
-    <div class="col-md-8">
-      <div class="tweet-item">
-        <div class="user-date">
-          <%= reply.user.name %>,
-          <%= time_ago_in_words(reply.created_at) %>
+        <div class="tweet-item">
+          <div class="user-date">
+            <%= reply.user.name %>,
+            <%= time_ago_in_words(reply.created_at) %>
+          </div>
+          <div class="tweet-index">
+            <%= reply.comment %>
+          </div>
         </div>
-        <div class="tweet-index">
-          <%= reply.comment %>
-        </div>
-      </div>
-    </div>
-  <% end %>
 
-  </div>
-</div>
-
-<!-- 評論框框 -->
-
-<div class="container">
-  <div class="row"> 
-    <div class="col-md-8">
-
-      <%= form_for [@tweet, @reply] do |f| %>
-        <div class= "tweet-area">
-          <%= f.text_area :comment, {maxlength: 140, class: "form-control", rows: "3",placeholder: "Leave your message..."} %>
-        </div>
-        <%= f.submit class: "btn btn-primary pull-right" %>
       <% end %>
+
+    <!-- 評論框框 -->
+        <%= form_for [@tweet, @reply] do |f| %>
+          <div class= "tweet-area">
+            <%= f.text_area :comment, {maxlength: 140, class: "form-control", rows: "3",placeholder: "Leave your message..."} %>
+          </div>
+          <%= f.submit class: "btn btn-primary pull-right" %>
+        <% end %>
 
     </div>
   </div>
