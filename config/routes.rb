@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :tweets, only: [:index, :show, :new, :create]
   root "tweets#index"
 
+  resources :replies, only: [:index, :create, :destroy]
+
   namespace :admin do
     resources :tweets, only: [:index, :destroy]
     root "tweets#index"
