@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
     @tweet = Tweet.new
-    @user_name = current_user.name
+    @tweet.user = current_user
   end
 
   def new
@@ -13,11 +13,12 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
+    @tweet.user = current_user
     if @tweet.save
       flash[:notice] = "Tweet was successfully created"
       redirect_to tweets_path
     else
-      flash.now["alert"] = "Restaurant was failed to create"
+      flash.now["alert"] = "Tweet was failed to create"
       render :new
     end
   end

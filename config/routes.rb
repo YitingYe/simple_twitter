@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :tweets
+  resources :user do
+    resources :tweets
+  end
+  resources :tweets, only: [:index, :show, :new, :create]
   root "tweets#index"
 
   namespace :admin do
