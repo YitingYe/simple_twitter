@@ -1,3 +1,4 @@
+<!-- tweet -->
 <div class="container">
   <div class="row">  
 
@@ -18,16 +19,44 @@
   </div>
 </div>
 
+<!-- 顯示評論 -->
+
 <div class="container">
   <div class="row"> 
 
-    <div class="title">Replies</div>
+  <div class="title">Replies</div>
 
-    <%= form_for [@tweet, @reply] do |f| %>
-      <%= f.text_area :comment, placeholder: "..." %>
-      <%= f.submit class: "btn btn-primary" %>
-    <% end %>
+  <% @tweet.replies.each do |reply| %>
+    <div class="col-md-8">
+      <div class="tweet-item">
+        <div class="user-date">
+          <%= reply.user.name %>,
+          <%= time_ago_in_words(reply.created_at) %>
+        </div>
+        <div class="tweet-index">
+          <%= reply.comment %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
+  </div>
+</div>
+
+<!-- 評論框框 -->
+
+<div class="container">
+  <div class="row"> 
+    <div class="col-md-8">
+
+      <%= form_for [@tweet, @reply] do |f| %>
+        <div class= "tweet-area">
+          <%= f.text_area :comment, {maxlength: 140, class: "form-control", rows: "3",placeholder: "Leave your message..."} %>
+        </div>
+        <%= f.submit class: "btn btn-primary pull-right" %>
+      <% end %>
+
+    </div>
   </div>
 </div>
 
