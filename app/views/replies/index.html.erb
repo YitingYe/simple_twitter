@@ -1,2 +1,33 @@
-<h1>Tweets</h1>
-<h1>Replies</h1>
+<div class="container">
+  <div class="row">  
+
+    <div class="title">Tweets</div>
+
+    <div class="col-md-8">
+      <div class="tweet-item">
+        <div class="user-date">
+          <%= @tweet.user.name %>,
+          <%= time_ago_in_words(@tweet.created_at) %>
+        </div>
+        <div class="tweet-index">
+          <%= @tweet.description %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row"> 
+
+    <div class="title">Replies</div>
+
+    <%= form_for [@tweet, @reply] do |f| %>
+      <%= f.text_area :comment, placeholder: "..." %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
+
