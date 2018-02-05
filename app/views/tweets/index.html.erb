@@ -1,19 +1,36 @@
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
 
-          <%= form_for @tweet do |f| %>
-            <%= f.text_area :description, {maxlength: 140, class: "form-control", rows: "5"} %>
-            <br />
-            <%= f.submit 'Tweet', class: "btn btn-primary" %>
-          <% end %>
-          
-          <br />
-
-          <% @tweets.each do |tweet| %>
-            <p><%= tweet.description %> | <%= tweet.user %></p>
-          <% end %>
-
+      <%= form_for @tweet do |f| %>
+        <div class= "tweet-area">
+          <%= f.text_area :description, {maxlength: 140, class: "form-control", rows: "5",placeholder: "How are you today?"} %>
         </div>
-      </div>
+        <%= f.submit 'Tweet', {class: "btn btn-primary pull-right"}%>
+      <% end %>
+
     </div>
+  </div>
+</div>
+      
+<br />
+
+<div class="container">
+  <div class="row">    
+
+      <% @tweets.each do |tweet| %>
+        <div class="col-md-8">
+          <div class="tweet-item">
+            <div class="user-date">
+              <%= tweet.user %>,
+              <%= time_ago_in_words(tweet.created_at) %>
+            </div>
+            <div class="tweet-index">
+              <%= tweet.description %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+  </div>
+</div>
