@@ -23,6 +23,11 @@ class UsersController < ApplicationController
     self.followings.include?(@user)
   end
 
+  def likes
+    @user = User.find(params[:id])
+    @likes = @user.likes
+  end
+
   private
 
   def user_params

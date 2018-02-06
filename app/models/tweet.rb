@@ -5,4 +5,11 @@ class Tweet < ApplicationRecord
 
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
+
+  default_scope -> { order('id DESC') }
+
+  def count_likes
+    self.likes_count = self.count.size
+    self.save
+  end
 end

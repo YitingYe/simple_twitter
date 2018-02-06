@@ -21,17 +21,17 @@
 
     <!-- tweets -->
     <div class="col-md-10">
-
-      <% @tweets.each do |tweet| %>
+      <div class="title">Like</div>
+      <% @likes.each do |like| %>
         <div class="tweet-item">
           <div class="user-date">
-            <%= tweet.user.name %>,
-            <%= time_ago_in_words(tweet.created_at) %>
+            <%= like.tweet.user.name %>,
+            <%= time_ago_in_words(like.tweet.created_at) %>
           </div>
           <div class="tweet-index">
-            <%= tweet.description %>
+            <%= like.tweet.description %>
           </div>
-          <%= link_to "Reply", tweet_replies_path(tweet) %>
+          <%= link_to "Reply", tweet_replies_path(like.tweet) %>
         </div>
       <% end %>
 
@@ -39,4 +39,3 @@
 
   </div>
 </div>
-

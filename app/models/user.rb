@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_tweets, through: :likes, source: :tweet
 
+  default_scope -> { order('id DESC') }
+
   def admin?
     self.role == "admin"
   end 
