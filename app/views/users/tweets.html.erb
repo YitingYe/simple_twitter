@@ -1,1 +1,29 @@
-<h1><%= @user.name %>'s Dashboard</h1>
+<div class="container">
+  <div class="row">  
+
+    <!-- tweet's author -->
+    <div class="col-md-2">
+      <div class="title"><%= @user.name %></div>
+    </div>
+
+    <!-- tweets -->
+    <div class="col-md-10">
+
+      <% @tweets.each do |tweet| %>
+        <div class="tweet-item">
+          <div class="user-date">
+            <%= tweet.user.name %>,
+            <%= time_ago_in_words(tweet.created_at) %>
+          </div>
+          <div class="tweet-index">
+            <%= tweet.description %>
+          </div>
+          <%= link_to "Reply", tweet_replies_path(tweet) %>
+        </div>
+      <% end %>
+
+     </div>
+
+  </div>
+</div>
+
