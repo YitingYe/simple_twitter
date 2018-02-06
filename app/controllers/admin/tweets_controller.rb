@@ -12,5 +12,11 @@ class Admin::TweetsController < ApplicationController
     redirect_to admin_tweets_path
     flash[:alert] = "TWEET WAS DELETED"
   end
+
+  private
+
+  def tweet_params
+    params.require(:tweet).permit(:description, :image)
+  end
   
 end
