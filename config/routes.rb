@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       get :tweets
     end
   end
+
+  resources :followships, only: [:create, :destroy]
+
   resources :tweets, only: [:index, :show, :new, :create] do
     resources :replies, only: [:index, :create, :destroy]
   end

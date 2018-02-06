@@ -7,11 +7,14 @@
       <div class="title"><%= @user.name %></div>
       <div class="introduction"><%= @user.introduction %></div>
       <br />
+
       <% if @user == current_user %>
         <%= link_to 'Edit Profile', edit_user_path(current_user) , class: "btn btn-primary" %>
       <% else %>
-        Follow
+        <%= link_to 'Unfollow', followship_path(@user), method: :delete %>
+        <%= link_to 'Follow', followships_path(following_id: @user), method: :post %>
       <% end %>
+
     </div>
 
     <!-- tweets -->

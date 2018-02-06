@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     @tweets = @user.tweets
   end
 
+  def following?(user)
+    self.followings.include?(@user)
+  end
+
   private
 
   def user_params
