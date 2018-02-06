@@ -11,6 +11,11 @@ Rails.application.routes.draw do
 
   resources :tweets, only: [:index, :show, :new, :create] do
     resources :replies, only: [:index, :create, :destroy]
+
+    member do
+      post :like
+      post :unlike
+    end
   end
 
   root "tweets#index"

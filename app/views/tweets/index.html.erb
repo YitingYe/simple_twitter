@@ -9,6 +9,7 @@
         <%= f.submit 'Tweet', {class: "btn btn-primary pull-right"}%>
       <% end %>
 
+
     </div>
   </div>
 </div>
@@ -29,6 +30,9 @@
               <%= tweet.description %>
             </div>
             <%= link_to "Reply", tweet_replies_path(tweet) %>
+
+            <%= link_to 'Like', like_tweet_path(tweet), method: :post %>
+            <%= link_to 'Unlike', unlike_tweet_path(tweet), method: :post %>
           </div>
         </div>
       <% end %>
