@@ -3,13 +3,14 @@
 
     <!-- tweet's author -->
     <div class="col-md-2">
-      <%= form_for @user do |f| %>
-        <%= image_tag @user.avatar, width: '150px' if @user.avatar? %>
-        <%= f.file_field :avatar %>
+
     </div>
 
     <!-- edit profile -->
     <div class="col-md-10">
+      <%= form_for @user do |f| %>
+        <%= image_tag @user.avatar, width: '150px' if @user.avatar? %>
+        <%= f.file_field :avatar %>
         <%= f.text_field :name, class: "form-control"%>
         <br />
         <%= f.text_area :introduction,{maxlength: 140, class: "form-control", rows: "10",placeholder: "Type anything about you here ..."}%>
