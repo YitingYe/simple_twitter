@@ -4,7 +4,7 @@
 
       <%= form_for @tweet do |f| %>
         <div class= "tweet-area">
-          <%= f.text_area :description, {maxlength: 140, class: "form-control", rows: "5",placeholder: "How are you today?"} %>
+          <%= f.text_area :description, {maxlength: 140, class: "form-control :focus", rows: "5",placeholder: "How are you today?"} %>
         </div>
         <%= f.submit 'Tweet', {class: "btn btn-primary pull-right"}%>
       <% end %>
@@ -61,11 +61,17 @@
               <%= image_tag popular.avatar if popular.avatar? %>
             </div>
           </div>
-        <div class="user-date"><p><%= link_to "#{popular.name}", tweets_user_path(popular) %></p></div>
+        <div class="user-date"><p>
+          <%= link_to "#{popular.name}", tweets_user_path(popular) %></p>
+        </div>
+        <%= popular.followers_count %>
         <p><%= popular.introduction %></p>
         <% if popular != current_user %>
-          <%= link_to 'Unfollow', followship_path(popular), method: :delete, class: "btn btn-primary" %>
-          <%= link_to 'Follow', followships_path(following_id: popular), method: :post,class: "btn btn-primary" %>
+          <% if current_user.following?(popular)%>
+            <%= link_to 'Unfollow', followship_path(popular), method: :delete, class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to 'Follow', followships_path(following_id: popular), method: :post,class: "btn btn-primary" %>
+          <% end %>
         <% end %>
         </div>
 
