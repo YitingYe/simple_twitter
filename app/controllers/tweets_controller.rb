@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all
     @tweet = Tweet.new
     @users = User.all
+    @popular = User.order(followers_count: :desc).limit(10)
   end
 
   def new

@@ -8,8 +8,6 @@ class Tweet < ApplicationRecord
 
   default_scope -> { order('id DESC') }
 
-  def count_likes
-    self.likes_count = self.count.size
-    self.save
-  end
+
+
 end
