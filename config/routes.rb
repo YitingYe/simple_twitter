@@ -10,7 +10,6 @@ Rails.application.routes.draw do
       get :followers
     end
   end
-
   resources :followships, only: [:create, :destroy]
 
   resources :tweets, only: [:index, :show, :new, :create] do

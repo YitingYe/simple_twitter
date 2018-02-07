@@ -2,28 +2,7 @@
   <div class="row">  
 
     <!-- tweet's author -->
-    <div class="col-md-2">
-      <%= image_tag @user.avatar, width: '150px' if @user.avatar? %>
-      <div class="title"><%= @user.name %></div>
-      <div class="introduction"><%= @user.introduction %></div>
-
-      <br />
-
-      <%= link_to "Tweets #{@tweets.count}",tweets_user_path(@user),class: "user-link" %>
-      <%= link_to "Like #{@likes.count}",likes_user_path(@user),class: "user-link" %>
-      <%= link_to "Followings #{@followings.count}",followings_user_path(@user),class: "user-link" %>
-      <%= link_to "Followers #{@followers.count}",followers_user_path(@user),class: "user-link" %>
-
-      <br />
-
-      <% if @user == current_user %>
-        <%= link_to 'Edit Profile', edit_user_path(current_user) , class: "btn btn-primary" %>
-      <% else %>
-        <%= link_to 'Unfollow', followship_path(@user), method: :delete %>
-        <%= link_to 'Follow', followships_path(following_id: @user), method: :post %>
-      <% end %>
-
-    </div>
+    <%= render partial: "shared/author" %>
 
     <!-- tweets -->
     <div class="col-md-10">

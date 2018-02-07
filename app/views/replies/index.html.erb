@@ -3,21 +3,9 @@
   <div class="row">  
 
     <!-- tweet's author -->
-    <div class="col-md-2">
-      <%= link_to tweets_user_path(@user) do %>
-        <div class="title"><%= @tweet.user.name %></div>
-      <% end %>
+    <%= render partial: "shared/author" %>
 
-    <% if @user == current_user %>
-        <%= link_to 'Edit Profile', edit_user_path(current_user) , class: "btn btn-primary" %>
-      <% else %>
-        <%= link_to 'Unfollow', followship_path(@user), method: :delete %>
-        <%= link_to 'Follow', followships_path(following_id: @user), method: :post %>
-      <% end %>
-
-    </div>
-
-  <!-- tweet -->
+    <!-- tweet -->
     <div class="col-md-10">
       <div class="title">Tweets</div>
       <div class="tweet-item">
