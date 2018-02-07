@@ -32,10 +32,16 @@ class UsersController < ApplicationController
   end
 
   def followings
+    @tweets = @user.tweets
+    @likes = @user.likes
     @followings = @user.followings
+    @followers = @user.followers
   end
 
   def followers
+    @tweets = @user.tweets
+    @likes = @user.likes
+    @followings = @user.followings
     @followers = @user.followers
   end
 

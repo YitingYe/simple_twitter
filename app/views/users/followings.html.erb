@@ -1,4 +1,27 @@
-<%= @followings.count %>
-<% @followings.each do |following| %>
-  <%= following.name %>
-<% end %>
+<div class="container">
+  <div class="row">  
+
+    <!-- tweet's author -->
+    <%= render partial: "shared/author" %>
+
+    <!-- tweets -->
+  <div class="col-md-10">
+    <div class="title">Following</div>
+    <% @followings.each do |following| %>
+      <div class="col-md-6">
+        <div class="tweet-item">
+          <div class="user-date">
+            <%= following.name %>,
+          </div>
+          <div class="tweet-index">
+            <%= following.introduction %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+  </div>
+</div>
+

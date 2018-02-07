@@ -13,31 +13,39 @@
       <br />
 
       <% @tweets.each do |tweet| %>
+        <%= link_to tweet_replies_path(tweet) do %>
           <div class="tweet-item">
-            <div class="user-date">
-              <%= tweet.user.name %>,
-              <%= time_ago_in_words(tweet.created_at) %>
+            <div class="col-md-3">
+              <div class="img-container">
+                <%= image_tag tweet.user.avatar if tweet.user.avatar? %>
+              </div>
             </div>
-            <div class="tweet-index">
-              <%= tweet.description %>
-            </div>
-            <%= link_to "Reply", tweet_replies_path(tweet) %>
+              <div class="user-date">
+                <%= tweet.user.name %>,
+                <%= time_ago_in_words(tweet.created_at) %>
+              </div>
+              <div class="tweet-index">
+                <%= tweet.description %>
+              </div>
+              <%= link_to "Reply", tweet_replies_path(tweet) %>
 
-            <% if tweet.is_liked?(current_user) %>
-              <%= link_to unlike_tweet_path(tweet), method: :post do %>
-                <button type="button" class="btn btn-default btn-xs pull-right">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Unlike
-                </button>
+              <% if tweet.is_liked?(current_user) %>
+                <%= link_to unlike_tweet_path(tweet), method: :post do %>
+                  <button type="button" class="btn btn-default btn-xs">
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Unlike
+                  </button>
+                <% end %>
+              <% else %>
+                <%= link_to like_tweet_path(tweet), method: :post do %>
+                  <button type="button" class="btn btn-default btn-xs">
+                  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like 
+                  </button>
+                <% end %>
               <% end %>
-            <% else %>
-              <%= link_to like_tweet_path(tweet), method: :post do %>
-                <button type="button" class="btn btn-default btn-xs pull-right">
-                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
-                </button>
-              <% end %>
-            <% end %>
-              
+
+
           </div>
+        <% end %>
       <% end %>
 
     </div>
@@ -48,6 +56,11 @@
 
       <% @popular.each do |popular| %>
         <div class="tweet-item">
+          <div class="col-md-6">
+            <div class="img-container">
+              <%= image_tag popular.avatar if popular.avatar? %>
+            </div>
+          </div>
         <div class="user-date"><p><%= link_to "#{popular.name}", tweets_user_path(popular) %></p></div>
         <p><%= popular.introduction %></p>
         <% if popular != current_user %>
