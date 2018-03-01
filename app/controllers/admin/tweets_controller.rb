@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Admin::TweetsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin
@@ -19,4 +20,12 @@ class Admin::TweetsController < ApplicationController
     params.require(:tweet).permit(:description, :image)
   end
   
+=======
+class Admin::TweetsController < Admin::BaseController
+  def index
+  end
+
+  def destroy
+  end
+>>>>>>> 3f687d8450c1b3408c06805c3dccba381bd73b72
 end

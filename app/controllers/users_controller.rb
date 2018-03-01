@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
   before_action :authenticate_user!
   before_action :set_user, only: [:edit, :update, :tweets, :likes, :followings, :followers]
 
@@ -53,6 +54,28 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :introduction, :avatar)
+=======
+
+  def tweets
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def followings
+    @followings # 基於測試規格，必須講定變數名稱
+  end
+
+  def followers
+    @followers # 基於測試規格，必須講定變數名稱
+  end
+
+  def likes
+    @likes # 基於測試規格，必須講定變數名稱
+>>>>>>> 3f687d8450c1b3408c06805c3dccba381bd73b72
   end
 
 end

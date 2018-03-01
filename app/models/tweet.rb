@@ -1,4 +1,5 @@
 class Tweet < ApplicationRecord
+<<<<<<< HEAD
   belongs_to :user, dependent: :destroy, optional: true
   has_many :replies
   mount_uploader :image, PhotoUploader
@@ -13,5 +14,8 @@ class Tweet < ApplicationRecord
   default_scope -> { order('id DESC') }
 
 
+=======
+  validates_length_of :description, maximum: 140
+>>>>>>> 3f687d8450c1b3408c06805c3dccba381bd73b72
 
 end

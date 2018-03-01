@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# frozen_string_literal: true
+
+>>>>>>> 3f687d8450c1b3408c06805c3dccba381bd73b72
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -6,7 +11,11 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
+<<<<<<< HEAD
   # config.secret_key = '54471c9d4be2b8a02f85fcaed86cb64a94a63060ae5767aa9ca1e9e55b3b8ced48c2c5d7e1530974945fbe39f1cd3d1f0d1bcc3cdfb439e253d16f2545899cff'
+=======
+  # config.secret_key = '86275682a6048d9d89bb9f0bd09e6dc0f00a1fcb97d205dc55f40b76535f674353e555e4feeccf23f6aeee9657b26a012f4b2d098faffab1e56485e4bb7d20c1'
+>>>>>>> 3f687d8450c1b3408c06805c3dccba381bd73b72
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -108,7 +117,11 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
+<<<<<<< HEAD
   # config.pepper = 'b8f4431bb5ef9249117e1602ae42c84843acf53280f04c72fef07681fdb953898155a8303113fb7dcc51ffe168bff153bd88f7ffa1008d26ee6c315ca2332d22'
+=======
+  # config.pepper = '1a81a722cfdf5decc331c57113cef25a772f9f4819024b51ffba6cbeca51c4e4808286603bfa9a8758d21036c441a8af12545b06ed5971f0cf411d3a8e83e74e'
+>>>>>>> 3f687d8450c1b3408c06805c3dccba381bd73b72
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false

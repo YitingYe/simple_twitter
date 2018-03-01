@@ -5,7 +5,11 @@
 
   <div class="field">
     <%= f.label :email %><br />
+<<<<<<< HEAD
     <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+=======
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+>>>>>>> 3f687d8450c1b3408c06805c3dccba381bd73b72
   </div>
 
   <div class="actions">

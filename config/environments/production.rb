@@ -59,7 +59,11 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
+<<<<<<< HEAD
   # config.active_job.queue_name_prefix = "simple_twitter_#{Rails.env}"
+=======
+  # config.active_job.queue_name_prefix = "simple-twitter_#{Rails.env}"
+>>>>>>> 3f687d8450c1b3408c06805c3dccba381bd73b72
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.

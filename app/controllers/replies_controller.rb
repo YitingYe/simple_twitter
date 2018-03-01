@@ -1,4 +1,5 @@
 class RepliesController < ApplicationController
+<<<<<<< HEAD
   before_action :authenticate_user!
   before_action :set_user, only: [:likes, :followings, :followers]
 
@@ -40,6 +41,13 @@ class RepliesController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+=======
+
+  def index
+  end
+
+  def create
+>>>>>>> 3f687d8450c1b3408c06805c3dccba381bd73b72
   end
 
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users do
@@ -30,5 +31,11 @@ Rails.application.routes.draw do
     resources :tweets, only: [:index, :destroy]
     root "tweets#index"
   end
+=======
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+
+  # 請依照專案指定規格來設定路由
+>>>>>>> 3f687d8450c1b3408c06805c3dccba381bd73b72
 
 end
